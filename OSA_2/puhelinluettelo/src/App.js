@@ -1,51 +1,12 @@
 import { useState } from 'react'
-const ShowPersons = (person) => {
-    return (
-      <li>
-        {person.person.name} {person.person.number}
+import FilterForm from "./components/FilterForm"
+import ShowPersons from "./components/ShowPersons"
+import AddPersonForm from './components/AddPersonForm'
 
-      </li>
-    )
-  
-}
 
-const Filter = (props) => {
-  return (
-    
-      <div>
-        Filter shown with <input
-          value={props.newFilter}
-          onChange={props.handleFilterChange}
-        />
-        </div>
 
-    
-  )
 
-}
 
-const AddPersonForm =(props) => {
-  return(
-    <form onSubmit={props.addPerson}>
-        <div>
-          name: <input
-            value={props.newName}
-            onChange={props.handlePersonChange}
-          />
-        </div>
-        <div>
-          number: <input
-            value={props.newNumber}
-            onChange={props.handleNumberChange}
-          />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-
-  )
-}
 
 const App = () => {
 
@@ -99,11 +60,9 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Filter newFilter={newFilter} handleFilterChange={handleFilterChange}/> 
+      <FilterForm newFilter={newFilter} handleFilterChange={handleFilterChange}/> 
       <h2>Add new</h2>
       <AddPersonForm addPerson={addPerson} newName={newName} newNumber={newNumber} handleNumberChange={handleNumberChange} handlePersonChange={handlePersonChange}/>
-      
-      
       
       <h2>Numbers</h2>
       <ul>
